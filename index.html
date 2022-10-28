@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" defer />
+    <!-- <link
+      rel="stylesheet"
+      href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
+    /> -->
+    <!-- <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <noscript>
+      <style>
+        /**
+        * Reinstate scrolling for non-JS clients
+        */
+        .simplebar-content-wrapper {
+          overflow: auto;
+        }
+      </style>
+    </noscript>
+    <title>Pokédex</title>
+  </head>
+  <body>
+    <main>
+      <div class="pokedex">
+        <h1>POKéDEX</h1>
+        <div class="images-wrapper">
+          <div
+            id="images-scroll-container"
+            class="images-scroll-container"
+            role="region"
+            aria-label="Images"
+            tabindex="0"
+          >
+            <ol class="images" role="list">
+              <!-- images inserted here  -->
+            </ol>
+          </div>
+        </div>
+        <div
+          class="names-scroll-container"
+          data-simplebar
+          data-simplebar-auto-hide="false"
+          data-simplebar-force-visible="true"
+          data-simplebar-aria-label="Names"
+        >
+          <ol class="names flow" role="list">
+            <!-- names inserted here -->
+          </ol>
+        </div>
+        <svg
+          width="150"
+          height="150"
+          viewBox="0 0 150 150"
+          fill="none"
+          class="pokeball"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_3_77)">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M104.421 80H149.672C147.099 119.09 114.577 150 74.836 150C35.0948 150 2.57293 119.09 0 80H45.2508C47.6312 94.1886 59.971 105 74.836 105C89.701 105 102.041 94.1886 104.421 80ZM104.421 70H149.672C147.099 30.9098 114.577 0 74.836 0C35.0948 0 2.57293 30.9098 0 70H45.2508C47.6312 55.8114 59.971 45 74.836 45C89.701 45 102.041 55.8114 104.421 70Z"
+              fill="#000329"
+            />
+            <circle cx="74.836" cy="75" r="20" fill="#000329" />
+          </g>
+          <defs>
+            <clipPath id="clip0_3_77">
+              <rect width="150" height="150" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+        <!-- navigation controls will be inserted here with JS -->
+        <div class="seen">
+          <p>SEEN</p>
+          <p>202</p>
+        </div>
+        <div class="own">
+          <p>OWN</p>
+          <p>202</p>
+        </div>
+        <div class="start-menu">
+          <div class="start-btn">
+            <p>START</p>
+            <div class="circle"></div>
+          </div>
+          <p>MENU</p>
+        </div>
+        <div class="select-search">
+          <div class="select-btn">
+            <p>SELECT</p>
+            <div class="circle"></div>
+          </div>
+          <p>SEARCH</p>
+        </div>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

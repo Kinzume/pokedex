@@ -11,17 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="simplebar.css" />
+    <script src="./simplebar.min.js"></script>
     <link rel="stylesheet" href="index.css" defer />
-    <!-- <link
-      rel="stylesheet"
-      href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
-    /> -->
-    <!-- <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script> -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+
     <noscript>
       <style>
         /**
@@ -35,6 +28,7 @@
     <title>Pokédex</title>
   </head>
   <body>
+    <div class="loader"></div>
     <main>
       <div class="pokedex">
         <h1>POKéDEX</h1>
@@ -47,7 +41,114 @@
             tabindex="0"
           >
             <ol class="images" role="list">
-              <!-- images inserted here  -->
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/252.png"
+                  alt="treeko"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/253.png"
+                  alt="grovyle"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/254.png"
+                  alt="sceptile"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/255.png"
+                  alt="torchic"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/256.png"
+                  alt="combusken"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/257.png"
+                  alt="blaziken"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/258.png"
+                  alt="mudkip"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/259.png"
+                  alt="marshtomp"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/260.png"
+                  alt="swampert"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/261.png"
+                  alt="poochyena"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/262.png"
+                  alt="mightyena"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/263.png"
+                  alt="zigzagoon"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/264.png"
+                  alt="linoone"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/265.png"
+                  alt="wurmple"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/266.png"
+                  alt="silcoon"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/267.png"
+                  alt="beautifly"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/268.png"
+                  alt="cascoon"
+                />
+              </li>
+              <li class="image-item">
+                <img
+                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/269.png"
+                  alt="dustox"
+                />
+              </li>
             </ol>
           </div>
         </div>
@@ -59,7 +160,24 @@
           data-simplebar-aria-label="Names"
         >
           <ol class="names flow" role="list">
-            <!-- names inserted here -->
+            <li class="name-item">treeko</li>
+            <li class="name-item">grovyle</li>
+            <li class="name-item">sceptile</li>
+            <li class="name-item">torchic</li>
+            <li class="name-item">combusken</li>
+            <li class="name-item">blaziken</li>
+            <li class="name-item">mudkip</li>
+            <li class="name-item">marshtomp</li>
+            <li class="name-item">swampert</li>
+            <li class="name-item">poochyena</li>
+            <li class="name-item">mightyena</li>
+            <li class="name-item">zigzagoon</li>
+            <li class="name-item">linoone</li>
+            <li class="name-item">wurmple</li>
+            <li class="name-item">silcoon</li>
+            <li class="name-item">beautifly</li>
+            <li class="name-item">cascoon</li>
+            <li class="name-item">dustox</li>
           </ol>
         </div>
         <svg

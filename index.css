@@ -118,8 +118,9 @@ h1 {
 .images-scroll-container:focus-visible {
   border: 8px solid purple;
 }
+
 .images-scroll-container {
-  scroll-snap-type: y mandatory;
+  /* scroll-snap-type: y proximity; */
   overflow-y: auto;
   height: 100%;
   background: linear-gradient(
@@ -228,10 +229,10 @@ h1 {
   gap: 0.5rem;
 }
 .name-item:first-of-type {
-  margin-top: calc(6em + 20vh);
+  margin-top: calc(6em + 17vh);
 }
 .name-item:last-of-type {
-  margin-bottom: calc(6em + 20vh);
+  margin-bottom: calc(6em + 17vh);
 }
 /* Simplebar JS library for custom scrollbars https://github.com/Grsmto/simplebar */
 .simplebar-vertical {
@@ -338,6 +339,9 @@ h1 {
 }
 
 @media (min-width: 730px) {
+  .loader::before {
+    font-size: 2.5rem;
+  }
   /* Layout */
   .pokedex {
     --edge-space: minmax(1em, 0.4fr);
@@ -435,6 +439,9 @@ h1 {
   }
 }
 @media (min-width: 1200px) {
+  .loader::before {
+    font-size: 5rem;
+  }
   /* Utility */
   .flow > *:where(:not(:first-child)) {
     margin-top: var(--names-spacing, 3.4rem);
@@ -550,5 +557,46 @@ h1 {
   /* Pokedex controls */
   .pokedex-controls {
     row-gap: 40em;
+  }
+}
+
+/* .images-scroll-container {
+  scroll-snap-type: y mandatory;
+} */
+.scroll-snap {
+  scroll-snap-type: y mandatory;
+}
+.loader {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.loader::before {
+  display: block;
+  content: "Loading";
+  width: fit-content;
+  height: 100vh;
+  font-size: 2.5rem;
+  display: flex;
+  margin-inline: auto;
+  align-items: center;
+  color: white;
+  animation: 1s linear 0s infinite alternate loading;
+}
+.loaded {
+  opacity: 0;
+}
+@keyframes loading {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
   }
 }

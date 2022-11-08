@@ -1,4 +1,4 @@
-// Add Pokedex navigation controls
+// Adding navigation controls (i.e. the arrows)
 const pokedex = document.querySelector(".pokedex");
 
 const controls = document.createElement("ol");
@@ -83,22 +83,19 @@ const navControlPrevious = createNavButton("start");
 const navControlNext = createNavButton("end");
 pokedex.appendChild(controls);
 
+/*
+ Reference to images-scroll-container for handling pokedex navigation
+ and rendering pokemon images
+*/
 const imagesScrollContainer = document.querySelector(
   '[class="images-scroll-container"]'
 );
-const imageList = imagesScrollContainer.querySelector('[role="list"]');
+
+// Handling pokedex navigation aria-disabled styling
 const namesScrollContainer = document.querySelector(
   '[class="names-scroll-container"]'
 );
 const namesList = namesScrollContainer.querySelector('[role="list"]');
-
-/**
- * Returns a string with leading zeroes of the given number.
- * @param {number} entryNumber
- */
-function addLeadingZeroes(entryNumber) {
-  return ("000" + entryNumber).slice(-3);
-}
 
 function _handlePokedexScroll() {
   const imagesScrollTop = Math.abs(imagesScrollContainer.scrollTop);
@@ -115,7 +112,15 @@ imagesScrollContainer.addEventListener("scroll", () => {
   _handlePokedexScroll();
 });
 
+/*  
+  Rendering pokemon images using data retrieved and processed from PokeAPI, using each 
+  pokemon's ID (with respect to the national pokedex) and the sprites hosted on the repo
+  https://github.com/PokeAPI/sprites. The sprites used here are from Pokemon Emerald
+  (from the generation III). Whilst this algorithm is running, a loader animation plays
+  until this algorithm completes.
+*/
 const renderImages = (data) => {
+  const imageList = imagesScrollContainer.querySelector('[role="list"]');
   const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/`;
   const ol = document.createElement("ol");
   ol.className = "images";
@@ -138,15 +143,25 @@ const renderImages = (data) => {
     const loader = document.querySelector('[class="loader"]');
     console.log(loader);
     loader.classList.add("loaded");
-    addSyncScroll();
-    _handlePokedexScroll();
-    _rotatePokeball();
     setTimeout(() => {
       loader.style = "z-index:-999";
     }, 1200);
   };
 };
 
+/**
+ * Returns a string with leading zeroes of the given number.
+ * @param {number} entryNumber
+ */
+function addLeadingZeroes(entryNumber) {
+  return ("000" + entryNumber).slice(-3);
+}
+
+/* 
+  Rendering pokemon names from data retrieved and processed from PokeAPI, adding
+  entry numbers and a miniPokeball image next to each pokemon name. The entry numbers
+  are styled to match the original game using the function addLeadingZeroes.
+*/
 const renderNames = (data) => {
   const ol = document.createElement("ol");
   ol.className = "names flow";
@@ -257,6 +272,15 @@ function addSyncScroll() {
   });
 }
 pokeball.style.transform = "scale(5) translate(-1em) rotate(90deg)";
+
+/* 
+  PokeAPI call to fetch data related to generation III pokedex. Once the data
+  is retrieved, the response is processed and the processed data is passed into
+  renderImages and renderNames. Other features are then added such as adding
+  scroll-snap to the images-scroll-container, sync scrolling (where the user
+  is able to scroll both containers simultaneously) and the background pokeball
+  svg is setup to rotate when the user scrolls either scroll container.
+*/
 const endpoint = fetch("https://pokeapi.co/api/v2/pokedex/4/");
 endpoint
   .then((response) => {
@@ -286,6 +310,9 @@ endpoint
         resolve();
       }).then(() => {
         imagesScrollContainer.classList.add("scroll-snap");
+        addSyncScroll();
+        _handlePokedexScroll();
+        _rotatePokeball();
       });
     });
   });

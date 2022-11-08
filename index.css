@@ -560,9 +560,6 @@ h1 {
   }
 }
 
-/* .images-scroll-container {
-  scroll-snap-type: y mandatory;
-} */
 .scroll-snap {
   scroll-snap-type: y mandatory;
 }

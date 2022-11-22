@@ -290,29 +290,21 @@ endpoint
     return response.json();
   })
   .then((json) => {
-    new Promise((resolve, reject) => {
-      const data = json["pokemon_entries"]
-        .map((entry) => {
-          return entry["pokemon_species"];
-        })
-        .map(({ name, url }) => {
-          const id = url.match(/[/][0-9]+/g)[0].slice(1);
-          return {
-            name,
-            id,
-          };
-        });
-      resolve(data);
-    }).then((data) => {
-      new Promise((resolve, reject) => {
-        renderImages(data);
-        renderNames(data);
-        resolve();
-      }).then(() => {
-        imagesScrollContainer.classList.add("scroll-snap");
-        addSyncScroll();
-        _handlePokedexScroll();
-        _rotatePokeball();
+    const data = json["pokemon_entries"]
+      .map((entry) => {
+        return entry["pokemon_species"];
+      })
+      .map(({ name, url }) => {
+        const id = url.match(/[/][0-9]+/g)[0].slice(1);
+        return {
+          name,
+          id,
+        };
       });
-    });
+    renderImages(data);
+    renderNames(data);
+    imagesScrollContainer.classList.add("scroll-snap");
+    addSyncScroll();
+    _handlePokedexScroll();
+    _rotatePokeball();
   });

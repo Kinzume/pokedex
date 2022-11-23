@@ -143,6 +143,7 @@ const renderImages = (data) => {
     const loader = document.querySelector('[class="loader"]');
     console.log(loader);
     loader.classList.add("loaded");
+    loader.setAttribute("aria-hidden", "true");
     setTimeout(() => {
       loader.style = "z-index:-999";
     }, 1200);
